@@ -1,0 +1,47 @@
+[
+    {
+        "name": "syholloway/mrcolor",
+        "version": "0.0.1",
+        "version_normalized": "0.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/syhol/mrcolor.git",
+            "reference": "b939325c72be0f71b9aca7db6f90984d8f4c755e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/syhol/mrcolor/zipball/b939325c72be0f71b9aca7db6f90984d8f4c755e",
+            "reference": "b939325c72be0f71b9aca7db6f90984d8f4c755e",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2013-10-10 11:17:36",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "SyHolloway": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Simon Holloway",
+                "email": "holloway.sy@gmail.com",
+                "homepage": "http://hollowaydesign.com/"
+            }
+        ],
+        "description": "Color manipulation tools and format conversion for PHP",
+        "homepage": "https://github.com/syholloway/mrcolor",
+        "keywords": [
+            "color",
+            "format",
+            "manipulation"
+        ]
+    }
+]

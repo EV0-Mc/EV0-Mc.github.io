@@ -1,0 +1,9 @@
+/*
+ * XenForo file_uploader.min.js
+ * Copyright 2010-2017 XenForo Ltd.
+ * Released under the XenForo License Agreement: http://xenforo.com/license-agreement
+ */
+(function(g){XenForo.FileUploader=function(b){var m=XenForo.AttachmentUploader(b),d=g(b.data("result")),h=d.find(".Progress"),j=h.find(".Meter"),f=d.find(".Filename"),c=d.find(".Delete"),e=0,i=function(){b.css({overflow:"",height:"",width:"",position:""})},k=function(){b.css({overflow:"hidden",height:"1px",width:"1px",position:"relative"})},l=function(a){setTimeout(function(){if(!f.is(":visible")){var c="";a.ajaxData&&g.each(a.ajaxData.error,function(a,b){c+=b+"\n"});var b=a.file,e=b.uniqueIdentifier||
+b.id;m.swfAlert(b,a.errorCode,c);g("#"+e).xfRemove();d.hide();i()}},1E3);a.type=="AttachmentUploadError"&&e--};b.bind({AttachmentQueueValidation:function(a){e>=1&&a.preventDefault()},AttachmentQueued:function(a){e++;console.log("Queued: %s (%d bytes)",a.file.name,a.file.size);k();f.hide();j.css("width",0);h.show();d.fadeIn(XenForo.speed.fast);c.data("attach-queue-event",a)},AttachmentUploadProgress:function(a){console.log("Uploaded %d/%d bytes.",a.bytes,a.file.size);a=Math.min(100,Math.ceil(a.bytes*
+100/a.file.size));j.css("width",a+"%")},AttachmentQueueError:l,AttachmentUploadError:l,AttachmentUploaded:function(a){var b=a.ajaxData.filename||a.file.name;console.info("Upload of %s completed!",b);k();d.show();h.hide();f.text(b);f.show();c.data("href",a.ajaxData.deleteUrl);a.file&&e--;c.removeData("attach-queue-event")}});c.bind("click",function(a){a.preventDefault();c.data("href")?XenForo.ajax(c.data("href"),{},function(){c.removeData("href");d.fadeOut(XenForo.speed.fast,function(){i()})}):((a=
+c.data("attach-queue-event"))&&(a.swfUpload?a.swfUpload.cancelUpload(a.file.id):a.file.flowObj&&a.file.cancel()),d.fadeOut(XenForo.speed.fast,function(){i()}))})};typeof XenForo.AttachmentUploader=="function"&&XenForo.register(".FileUploader","XenForo.FileUploader")})(jQuery,this,document);
